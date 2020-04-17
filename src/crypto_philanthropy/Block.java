@@ -1,5 +1,6 @@
 package crypto_philanthropy;
 
+import static crypto_philanthropy.CryptoPhilanthropy.difficulty;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -45,4 +46,14 @@ public class Block {
         System.out.println("Charity Amount: " + this.transaction.getAmount());
         System.out.println("Charity date: " + this.transaction.getDate());
     }
+    
+     public void mineBlock(int difficulty){
+        String target = new String(new char[difficulty]).replace('\0', '0'); //Create a string with difficulty * "0" 
+        while(!hash.substring( 0, difficulty).equals(target)) {
+                nonce ++;
+                hash = getSHAHashValue();
+        }
+        System.out.println("Block Mined!!! : " + hash);
+    }
+    
 }

@@ -103,12 +103,22 @@ public class CryptoPhilanthropy {
         System.out.println("Previous Hash: " + newBlock.previousHash);
         System.out.println("************************************");
         
-        // **** CODE FOR MINING OF BLOCK*********
-         
-        blockChain.add(newBlock);
-        
-        if(verifyTransaction() == true){
-            System.out.println("Transaction Verified....");
+        System.out.println("Trying to verify block(zero knowledge proof)");
+        if(isBlockValid(transID)){
+            System.out.println("Block Verified");
+            blockChain.add(newBlock);
+            System.out.println("Trying to Mine the added block(proof of work)...");
+            blockChain.get(blockChain.size()-1).mineBlock(difficulty);
+
+            if(verifyTransaction() == true){
+                System.out.println("Transaction Verified....");
+            }
+            else{
+                System.out.println("Transaction Failed!!!!...");
+            }
+        }
+        else{
+            System.out.println("Block could not be verified!!!!...");
         }
     }
     
@@ -155,5 +165,40 @@ public class CryptoPhilanthropy {
         if(flag == 0){
             System.out.println("No charity history found");
         }
+    }
+    
+    private static long pow(long x,long y,long p)
+    {
+            long res=1;
+            x=x%p;
+            while(y>0)
+            {
+                    if((y&1)==1)
+                            res=(res*x)%p;
+                    y=y>>1;
+                    x=(x*x)%p;
+            }
+            return res;
+    }
+    
+    private static long getRandomNumberInRange(long min, long max) {
+            return (long)(Math.random() * ((max - min) + 1)) + min;
+    }
+    
+    public static Boolean zeroKnowledge(long gen,long prime,int transID,int ite){
+        long y = pow(gen,transID,prime);
+        for(int i = 0; i < ite; i++){
+            long r = getRandomNumberInRange(0,prime-2);
+            long h = pow(gen,r,prime);
+            long b = getRandomNumberInRange(0,1);
+            long s = (r + b*transID)%(prime-1);
+            if( pow(gen,s,prime) != (h*pow(y,b,prime))%prime)
+                return false;
+        }
+        return true;
+    }
+    
+    public static Boolean isBlockValid(int transID){
+        return zeroKnowledge(24,2695139,transID,1000);
     }
 }
