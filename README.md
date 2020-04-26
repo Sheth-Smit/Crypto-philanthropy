@@ -49,9 +49,9 @@ If choice 2 is selected transaction history of the donor is displayed asking for
 
 *	Date of donation
 
-Collaborations:
-Daivik Purani(2017A7PS0166H)                                                                                                             Vivek Soni(2017A7PS0173H)
+Members:
+Daivik Purani(2017A7PS0166H)
+Vivek Soni(2017A7PS0173H)
 Dhruvil Shah(2017A7PS1566H)
-Smit Sheth(2017A7PS1666H)
-
+Sheth Smit(2017A7PS1666H)
 
