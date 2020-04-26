@@ -1,9 +1,9 @@
 # Crypto-philanthropy
-Block chain-based Charity Transactions
+***Block chain-based Charity Transactions***
 
-Programming Language: Java
+Programming Language: **Java**
 
-IDE used: NetBeans
+IDE used: **NetBeans**
 
 ## Main functions of the Code:
 
