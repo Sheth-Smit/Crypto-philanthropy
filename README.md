@@ -5,31 +5,35 @@ Programming Language: Java
 
 IDE used: NetBeans
 
-Main functions of the Code:
+## Main functions of the Code:
 
-•	createBlock()
+### createBlock()
 
 For each donation made a block will be created containing the Donor ID, Receiver ID, Amount donated, Time of donation and a Unique token.
 
-•	verifyTransaction()
+### verifyTransaction()
 
 For the authentication of unique donation token (Zero knowledge proof).
 
-•	mineBlock()
+### mineBlock()
 
 Verification of the confidentiality and integrity of the blockchain by using the hashes of preceding or succeeding blocks and it is validated by majority of miners.
 
-•	viewUser()
+### viewUser()
 
 Lists all the successful transaction against the user.
 
-Upon compiling and running the code gives three options:
+## How to run
 
-1.Donate
+The **CryptoPhilanthropy.java** is the main java file to run.
 
-2.View donor charity history
+Upon compiling and running, the code gives three options:
 
-3.Exit
+1. Donate
+
+2. View donor charity history
+
+3. Exit
 
 Upon entering choice 1, details of donor is taken along with the details of organization and amount.	
 
@@ -37,13 +41,13 @@ As soon as the transaction is done from donor end, zeroknowledge() is called to 
 
 If choice 2 is selected transaction history of the donor is displayed asking for a donor ID. The transactions are displayed with the following details.
 
-•	Transaction ID
+*	Transaction ID
 
-•	Organization donated to
+*	Organization donated to
 
-•	Amount donated
+*	Amount donated
 
-•	Date of donation
+*	Date of donation
 
 
 
